@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link href="./src/output.css" rel="stylesheet">
+  <title>Frontend Mentor | Interactive rating component</title>
+</head>
+<body class="bg-Dark text-White h-screen grid place-content-center font-Overpass">
+
+  <main>
+    <div id="rating" class="gradient-bg w-[347px] rounded-2xl p-5 sm:w-[412px] sm:p-8">
+        <div class="bg-Grey-900 w-10 h-10 grid place-content-center rounded-full mb-4">
+          <img src="./assets/images/icon-star.svg" alt="icon star">
+        </div>
+
+        <h2 class="mb-2 text-2xl sm:text-[29px]">
+          How did we do?
+        </h2>
+        <p class="text-Grey-500 mb-6 text-[15px]">
+          Please let us know how we did with your support request. All feedback is appreciated to help us improve our offering!
+        </p>
+        <div class="flex place-content-between">
+          <button class="circle">1</button>
+          <button class="circle">2</button>
+          <button class="circle">3</button>
+          <button class="circle">4</button>
+          <button class="circle">5</button>
+        </div>
+    
+        <button id="submit-btn" class="bg-Orange-500 w-full rounded-[22px] h-[35px] uppercase text-Dark font-bold text-[14px] tracking-widest hover:bg-White cursor-pointer">Submit</button>
+    </div>
+  </main>
+
+<div id="thank-you" class="gradient-bg w-[347px] rounded-2xl p-7 sm:w-[412px] sm:p-9 hidden">
+  <div class="flex justify-center mb-6">  
+    <img src="./assets/images/illustration-thank-you.svg" alt="illustration thank you" class="w-[144px]">
+  </div>
+
+  <div class="flex justify-center mb-6">
+    <p class="bg-Grey-900 inline-block rounded-[22px] px-3 py-2 text-Orange-500 text-[15px]">You selected <span id="score"></span> out of 5</p>
+  </div>
+
+  
+    <h2 class=" text-center mb-2 text-2xl" >Thank you!</h2>
+    <p class="text-center text-Grey-500 text-[15px]">
+      We appreciate you taking the time to give a rating. If you ever need more support, 
+      don't hesitate to get in touch!
+    </p>
+ 
+
+
+  
+</div>
+
+
+
+  <script src="./index.js"></script>
+
+</body>
+</html>
