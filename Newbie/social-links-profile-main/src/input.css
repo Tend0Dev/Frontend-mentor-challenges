@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+
+@font-face {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 400 600 700;
+    font-display: swap;
+    src: url(../assets/fonts/Inter-VariableFont_slnt\,wght.ttf);
+}
+
+@theme{
+    --color-Green: hsl(75, 94%, 57%);
+    --color-White: hsl(0, 0%, 100%);
+    --color-Grey-700: hsl(0, 0%, 20%);
+    --color-Grey-800: hsl(0, 0%, 12%);
+    --color-Grey-900: hsl(0, 0%, 8%);
+    --font-Inter: Inter;
+}
+
+
+@layer components {
+
+    .button-themes {
+        @apply bg-Grey-700 w-full text-sm py-3 font-bold rounded-[8px] mb-4 hover:bg-Green hover:text-Grey-800 cursor-pointer;
+    }
+}
