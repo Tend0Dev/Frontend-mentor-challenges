@@ -1,19 +1,33 @@
-import { useState } from "react";
-import Button from "./Button";
 import { Toggle } from 'rsuite';
 import 'rsuite/Toggle/styles/index.css';
+import Button from "./Button";
 
-function Card ({logo, name, description, isActive}) {
+function Card ({logo, name, description, isActive, extensions, setExtensions}) {
 
-    const [active, setIsActive] = useState(isActive);
+    const onToggle = () => {
+        const currentExtension = extensions.filter(extension => extension.name === name)[0];
 
-    const handleToggle = (checked) => {
-        setIsActive(checked)
+        const updateExtension = {...currentExtension, isActive: !currentExtension.isActive}
 
+        const newExtensions = extensions.map(extension => {
+            if(extension.name === name){
+                extension = {...updateExtension}
+            }
+            return extension;
+        })
+        console.log(newExtensions)
 
+        setExtensions(newExtensions)
+
+        
     }
 
+    const onRemove = () => {
+        const filteredExtension = extensions.filter(extension => extension.name !== name)
+        setExtensions(filteredExtension);
+        
 
+    }
 
     return (
         <div className="bg-Neutral-0 rounded-2xl p-4 shadow-sm dark:bg-Neutral-800 dark:text-Neutral-0">
@@ -27,8 +41,8 @@ function Card ({logo, name, description, isActive}) {
             </div>
 
             <div className="flex items-center place-content-between">
-                <Button textSmall >Remove</Button>
-                <Toggle checked={active} onChange={handleToggle} color="red"/>
+                <Button textSmall handleClick = {onRemove} >Remove</Button>
+                <Toggle onClick={onToggle} checked = {isActive} color='red'/>
             </div>
 
         </div>

@@ -1,16 +1,18 @@
  import  Button  from './Button'
 
 
+ function Filters({filter,setFilter}) {
+    const handleClick = (event) => {
 
-
-function Filters() {
+        setFilter(event.target.textContent)
+    }
     return (
         <div className='mb-6 md:flex md:items-center md:justify-between'>
             <h2 className='dark:text-neutral-50 text-center text-[2.125rem] font-bold mb-6 md:mb-0'>Extensions List</h2>
             <div className='flex place-content-between md:gap-4'>
-                <Button>All</Button>
-                <Button>Active</Button>
-                <Button>Inactive</Button>
+                <Button active = {filter === 'All'} handleClick={handleClick}>All</Button>
+                <Button active = {filter === 'Active'} handleClick={handleClick}>Active</Button>
+                <Button active = {filter === 'Inactive'} handleClick={handleClick}>Inactive</Button>
             </div>
         </div>
 

@@ -1,16 +1,23 @@
+import { useState } from 'react';
 import Logo from '@images/logo.svg';
 import LogoDark from '@images/logo-dark.svg';
 import IconSun from '@images/icon-sun.svg';
 import IconMoon from '@images/icon-moon.svg';
-import { useState } from 'react';
 
 function Header() {
 
-    const [isDark, setIsDark] = useState(false);
+    const saveTheme = localStorage.getItem('dark');
+    const [isDark, setIsDark] = useState(JSON.parse(saveTheme));
+
+    if(JSON.parse(saveTheme)){
+        document.documentElement.classList.add('dark')
+    }
 
     const handleClick = () => {
         const isDarkChanged = document.documentElement.classList.toggle('dark');
-        setIsDark(isDarkChanged)
+        setIsDark(isDarkChanged);
+
+        localStorage.setItem('dark', isDarkChanged );
     }
 
 
